@@ -1,0 +1,11 @@
+input{
+    width: 50%;
+}
+
+button {
+    width: 300px;
+    height: 60px;
+    font-size: xx-large;
+    border-radius: 30%;
+    background-color: aquamarine;
+}
