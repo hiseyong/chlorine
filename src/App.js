@@ -24,9 +24,9 @@ function App() {
       client.get('https://blynk.cloud/external/api/isHardwareConnected?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi')
     .then(res=> {
       if (res.data === true) {
-        setActivated('online')
+        setActivated('online🟢')
       } else {
-        setActivated('offline')
+        setActivated('offline🔴')
       }
     })
     }, 30000)
@@ -37,9 +37,9 @@ function App() {
       client.get('https://blynk.cloud/external/api/isHardwareConnected?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi')
     .then(res=> {
       if (res.data === true) {
-        setActivated('online')
+        setActivated('online🟢')
       } else {
-        setActivated('offline')
+        setActivated('offline🔴')
       }
     })
     
