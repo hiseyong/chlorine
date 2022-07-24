@@ -5,6 +5,7 @@ import './app.css'
 function App() {
   const client = axios.create();
   const [activated, setActivated] = useState('')
+  const [working, setWorking] = useState('')
   const [data, setData] = useState(50);
   const onClick = () => {
     client.get(`https://blynk.cloud/external/api/update?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v0=${data}`)
@@ -29,12 +30,18 @@ function App() {
         setActivated('offline')
       }
     })
-    }, 30000)
-    
-  }, [])
+    client.get('https://blynk.cloud/external/api/get?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v2')
+    .then(res => {
+      if (res.data === 1) {
+        setWorking('there is no problem')
+      } else {
+        setWorking('something is wrong(기계에 남은 알약이 없거나 무언가 끼었을 수 있음)')
+      }
+    })
+    }, 5000)
 
-  useEffect(() => {
-      client.get('https://blynk.cloud/external/api/isHardwareConnected?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi')
+
+     client.get('https://blynk.cloud/external/api/isHardwareConnected?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi')
     .then(res=> {
       if (res.data === true) {
         setActivated('online')
@@ -42,7 +49,14 @@ function App() {
         setActivated('offline')
       }
     })
-    
+    client.get('https://blynk.cloud/external/api/get?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v2')
+    .then(res => {
+      if (res.data === 1) {
+        setWorking('there is no problem')
+      } else {
+        setWorking('something is wrong(기계에 남은 알약이 없거나 무언가 끼었을 수 있음)')
+      }
+    })
   }, [])
 
   const onChange = (e) => {
@@ -51,6 +65,7 @@ function App() {
   return (
     <div className="App">
       <h3>machine is {activated}</h3>
+      <h3>{working}</h3>
       <center>
       <h1>{data}</h1>
       <input type="range" min="1" max="100" value={data} onChange={onChange}/>
