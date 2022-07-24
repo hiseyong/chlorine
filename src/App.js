@@ -32,10 +32,11 @@ function App() {
     })
     client.get('https://blynk.cloud/external/api/get?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v2')
     .then(res => {
-      if (res.data === 1) {
+      console.log(res.data)
+      if (res.data === 0) {
         setWorking('there is no problem')
       } else {
-        setWorking('something is wrong(기계에 남은 알약이 없거나 무언가 끼었을 수 있음)')
+        setWorking('something is wrong(기계에 남은 알약이 없거나 무언가 끼었을 수 있음. 그러나 다시 작동시킬 수는 있음)')
       }
     })
     }, 5000)
@@ -51,10 +52,11 @@ function App() {
     })
     client.get('https://blynk.cloud/external/api/get?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v2')
     .then(res => {
-      if (res.data === 1) {
+      console.log(res.data)
+      if (res.data === 0) {
         setWorking('there is no problem')
       } else {
-        setWorking('something is wrong(기계에 남은 알약이 없거나 무언가 끼었을 수 있음)')
+        setWorking('something is wrong(기계에 남은 알약이 없거나 무언가 끼었을 수 있음. 그러나 다시 작동시킬 수는 있음)')
       }
     })
   }, [])
@@ -64,13 +66,18 @@ function App() {
   }
   return (
     <div className="App">
+      <center>
+        <h1>
+          pool disinfectant inserter
+        </h1>
+        <hr/>
       <h3>machine is {activated}</h3>
       <h3>{working}</h3>
-      <center>
+      <hr/>
       <h1>{data}</h1>
       <input type="range" min="1" max="100" value={data} onChange={onChange}/>
       <br/>
-      <button onClick={onClick}>GO</button>
+      <button onClick={onClick}>INSERT</button>
       </center>
     </div>
   );
