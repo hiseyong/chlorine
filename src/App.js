@@ -14,8 +14,6 @@ function App() {
       if(response.status === 200) {
         if (activated === 'offline🔴') {
           alert('machine is offline')
-        } else {
-          alert('success')
         }
       } else {
         alert(`something is wrong ERROR CODE:${response.status}`)
@@ -36,7 +34,6 @@ function App() {
     })
     client.get('https://blynk.cloud/external/api/get?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v2')
     .then(res => {
-      console.log(res.data)
       if (res.data === 0) {
         setWorking('there is no problem')
       } else {
@@ -69,7 +66,7 @@ function App() {
     setData(e.target.value);
   }
   return (
-    <div className="App">
+    <div className="wrapper">
       <center>
         <h1>
           pool disinfectant inserter
@@ -79,10 +76,23 @@ function App() {
       <h3>{working}</h3>
       <hr/>
       <h1>{data}</h1>
-      <input type="range" min="1" max="100" value={data} onChange={onChange}/>
+      <input type="range" min="1" max="100" value={data} onChange={onChange} className='range'/>
       <br/>
-      <button onClick={onClick}>INSERT</button>
+      <button onClick={onClick} className='button-27' role='button'>INSERT</button>
       </center>
+      <footer>
+        <nav>
+          <a href='https://blog.naver.com/hiseyong' target='_blank'>Blog</a>|
+          <a href='https://github.com/hiseyong' target='_blank'>Github</a> 
+        </nav>
+        <p>
+          <span>dev: hiseyong</span>
+          <br/>
+          <span>email: hiseyong1008@gmail.com</span>
+          <br/>
+          <span>Copyright 2022. hiseyong. All Rights Reserved.</span>
+        </p>
+      </footer>
     </div>
   );
 }
