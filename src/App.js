@@ -12,7 +12,11 @@ function App() {
     client.get('https://blynk.cloud/external/api/update?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v1=1')
     .then(response => {
       if(response.status === 200) {
-        alert('succes')
+        if (activated === 'offline🔴') {
+          alert('machine is offline')
+        } else {
+          alert('success')
+        }
       } else {
         alert(`something is wrong ERROR CODE:${response.status}`)
       }
