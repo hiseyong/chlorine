@@ -53,7 +53,6 @@ function App() {
     })
     client.get('https://blynk.cloud/external/api/get?token=PCPldifAmHkzG2fmrG4WR9UzhZzPb5mi&v2')
     .then(res => {
-      console.log(res.data)
       if (res.data === 0) {
         setWorking('there is no problem')
       } else {
@@ -83,7 +82,7 @@ function App() {
       <footer>
         <nav>
           <a href='https://blog.naver.com/hiseyong' target='_blank'>Blog</a>|
-          <a href='https://github.com/hiseyong' target='_blank'>Github</a> 
+          <a href='https://github.com/hiseyong' target='_blank'>Github</a>
         </nav>
         <p>
           <span>dev: hiseyong</span>
