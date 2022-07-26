@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react';
 import { Link, Routes, Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import './app.css'
+import {Issue} from './Issue'
 
 function App() {
   const client = axios.create();
@@ -75,6 +76,9 @@ function App() {
         <hr/>
       <h3>machine is {activated}</h3>
       <h3>{working}</h3>
+      <Link to='/issue'>
+        <h3>문제 발생시 가이드</h3>
+      </Link>
       <hr/>
       <h1>{data}</h1>
       <input type="range" min="1" max="100" value={data} onChange={onChange} className='range'/>
@@ -95,7 +99,7 @@ function App() {
         </p>
       </footer>
       <Routes>
-        <Route path='/issue'/>
+        <Route path='/issue' component={<Issue/>}/>
       </Routes>
       </BrowserRouter>
     </div>
