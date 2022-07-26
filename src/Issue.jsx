@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import './issue.css'
 
 export function Issue() {
     return(
         <div>
             <center>
             <Link to='/'>
-                <button>Main Page</button>
+                <h3>Main Page</h3>
             </Link>
             <h2>Issues(문제가 있다 나왔을 때 의심되는 원인들)</h2>
             <p>
