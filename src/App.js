@@ -1,4 +1,5 @@
 import { useState,useEffect } from 'react';
+import { Link, Routes, Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import './app.css'
 
@@ -66,6 +67,7 @@ function App() {
   }
   return (
     <div className="wrapper">
+      <BrowserRouter>
       <center>
         <h1>
           pool disinfectant inserter
@@ -92,6 +94,10 @@ function App() {
           <span>Copyright 2022. hiseyong. All Rights Reserved.</span>
         </p>
       </footer>
+      <Routes>
+        <Route path='/issue'/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
